@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './app.css';
+
 import PhoneService from '../../services/phones-service';
 import Header from '../header';
 import Navbar from '../navbar';
 import PhonesList from '../phones-list';
+
+import './app.css';
 
 const phoneService = new PhoneService();
 

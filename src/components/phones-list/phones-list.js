@@ -1,15 +1,15 @@
 import React from 'react';
 
+import PhonesListItem from '../phones-list-item';
+
+import './phones-list.css';
+
 const PhonesList = ({ phones }) => {
   return (
     <div className="col-8 mt-4">
-      <ul className="list-group">
-        {phones.map(({ id, name }) => {
-          return (
-            <li className="list-group-item" key={id}>
-              {name}
-            </li>
-          );
+      <ul className="list-group phones-list">
+        {phones.map(phone => {
+          return <PhonesListItem phone={phone} key={phone.id} />;
         })}
       </ul>
     </div>
