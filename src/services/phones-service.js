@@ -1,4 +1,4 @@
-export default class PhoneService {
+export default class PhonesService {
   _apiBase = 'https://mate-academy.github.io/phone-catalogue-static/api';
 
   getResource = async url => {
@@ -8,16 +8,16 @@ export default class PhoneService {
       throw new Error(`Could not fetch ${url}, received ${res.status}`);
     }
 
-    return await res.json();
+    return res.json();
   };
 
   getAllPhones = async () => {
     const res = await this.getResource(`/phones.json`);
-    return await res;
+    return res;
   };
 
   getPhoneById = async id => {
     const res = await this.getResource(`/phones/${id}.json`);
-    return await res;
+    return res;
   };
 }

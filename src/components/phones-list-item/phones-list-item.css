@@ -1,0 +1,6 @@
+.title {
+  cursor: pointer;
+}
+.title:hover {
+  opacity: 0.8;
+}
