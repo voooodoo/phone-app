@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import PhonesService from '../../services/phones-service';
 import Header from '../header';
-import PhonesList from '../phones-list';
-import PhoneDeatails from '../phone-details';
+import List from '../list';
+import PhonesListItem from '../phones-list-item';
+import PhoneDetails from '../phone-details';
 import { debounce } from '../../utils';
 
 import './app.css';
@@ -85,8 +86,18 @@ export default class App extends Component {
         <Header updateFilter={this.updateFilter} updateSort={this.updateSort} />
         <div className="container">
           <div className="row">
-            <PhonesList phones={phones} updatePhoneDetails={this.updatePhoneDetails} />
-            <PhoneDeatails phone={activePhone} />
+            <div className="col-6 mt-4">
+              <List onClick={this.updatePhoneDetails}>
+                {childProps => {
+                  if (phones) {
+                    return phones.map(phone => {
+                      return <PhonesListItem phone={phone} {...childProps} key={phone.id} />;
+                    });
+                  }
+                }}
+              </List>
+            </div>
+            <PhoneDetails phone={activePhone} />
           </div>
         </div>
       </React.Fragment>

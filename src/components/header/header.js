@@ -7,7 +7,7 @@ const Header = ({ updateFilter, updateSort }) => {
         <a className="navbar-brand" href="/">
           Phone App
         </a>
-        <form className="form-inline">
+        <div className="form-inline">
           <label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
             Sort By
           </label>
@@ -21,8 +21,8 @@ const Header = ({ updateFilter, updateSort }) => {
             </option>
             <option value="age">Newest</option>
           </select>
-        </form>
-        <form className="form-inline">
+        </div>
+        <div className="form-inline">
           <input
             className="form-control mr-sm-2"
             type="search"
@@ -30,7 +30,7 @@ const Header = ({ updateFilter, updateSort }) => {
             aria-label="Search"
             onChange={event => updateFilter(event.target.value)}
           />
-        </form>
+        </div>
       </div>
     </div>
   );

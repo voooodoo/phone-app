@@ -6,8 +6,7 @@ const PhonesListItem = props => {
   const {
     phone: { name, imageUrl, snippet, id },
   } = props;
-  const { updatePhoneDetails } = props;
-
+  const { onClick } = props;
   const url = `assets/${imageUrl}`;
 
   return (
@@ -19,7 +18,7 @@ const PhonesListItem = props => {
           </div>
           <div className="col-md-9">
             <div className="card-body p-2">
-              <h5 className="card-title title" onClick={() => updatePhoneDetails(id)}>
+              <h5 className="card-title title" onClick={() => onClick(id)}>
                 {name}
               </h5>
               <p className="card-text">{snippet}</p>
