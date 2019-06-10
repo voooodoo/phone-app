@@ -89,10 +89,12 @@ export default class App extends Component {
             <div className="col-6 mt-4">
               <List onClick={this.updatePhoneDetails}>
                 {childProps => {
-                  if (phones) {
+                  if (phones.length > 0) {
                     return phones.map(phone => {
                       return <PhonesListItem phone={phone} {...childProps} key={phone.id} />;
                     });
+                  } else {
+                    return <span>Nothing...</span>;
                   }
                 }}
               </List>

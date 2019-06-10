@@ -1,23 +1,23 @@
 export default class PhonesService {
   _apiBase = 'https://mate-academy.github.io/phone-catalogue-static/api';
 
-  getResource = async url => {
+  async _getResource(url) {
     const res = await fetch(`${this._apiBase}${url}`);
 
     if (!res.ok) {
       throw new Error(`Could not fetch ${url}, received ${res.status}`);
     }
 
-    return res.json();
-  };
+    return await res.json();
+  }
 
-  getAllPhones = async () => {
-    const res = await this.getResource(`/phones.json`);
+  async getAllPhones() {
+    const res = await this._getResource(`/phones.json`);
     return res;
-  };
+  }
 
-  getPhoneById = async id => {
-    const res = await this.getResource(`/phones/${id}.json`);
+  async getPhoneById(id) {
+    const res = await this._getResource(`/phones/${id}.json`);
     return res;
-  };
+  }
 }
